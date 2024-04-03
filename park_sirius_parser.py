@@ -21,9 +21,6 @@ def main():
             event = BeautifulSoup(response.text, "html.parser")
             text_event = str(event.find_all(['b', 'br', 'p', 'h1', 'span']))
             text_event = remove_html_tags(text_event)
-            print(text_event[1:-1])
-            # date_event
-            print('------------------------------')
         except:
             pass
     return 0

@@ -20,9 +20,8 @@ def main():
 			current_dt = datetime.now()
 			time_diff = current_dt - timestamp
 
-			if time_diff.total_seconds() < 24 * 3600:
+			if time_diff.total_seconds() < 24 * 3600 and post.caption:
 				data.append(post.caption)
-				print('------------------------------')
 
 	return data
 

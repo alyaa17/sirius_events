@@ -37,7 +37,7 @@ def main():
                 date_now = str(datetime.now()).split(' ')[0].split('-')[::-1]
                 date_now = '-'.join(date_now)
 
-                if date == date_now:
+                if date == date_now and text_join:
                     data.append(text_join)
         count += 1
 
