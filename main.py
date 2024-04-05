@@ -16,13 +16,9 @@ tg_data = tg_parser.main()
 data = sirius_parser_ft.main()
 data.extend(tg_data)
 
-for elem in data:
-    if elem and check_event(elem):
-        print(elem)
-        # выделение сущностей
-        # добавление в бд
 
-
+data = park_sirius_parser.main()
+print(data)
 
 # print(park_sirius_parser.main()) # готовые данные
 

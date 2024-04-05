@@ -6,6 +6,7 @@ from sirius_parser_ft import remove_html_tags
 
 site_link = 'https://parksirius.ru'
 links = set()
+data = []
 
 
 def main():
@@ -59,10 +60,9 @@ def main():
         except:
             with open('garbage.txt', 'w') as file:
                 file.write(link)
-        print(event_title, location_event, event_date, event_price, link, sep='\n')
-        print('__________________')
-
-    return 0
+        event_inf = [event_title, location_event, event_date, event_price, link]
+        data.append(event_inf)
+    return data
 
 
 if __name__ == '__main__':
