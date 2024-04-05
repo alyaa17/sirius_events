@@ -16,9 +16,10 @@ tg_data = tg_parser.main()
 data = sirius_parser_ft.main()
 data.extend(tg_data)
 
-
 data = park_sirius_parser.main()
-print(data)
+
+# подключение к бд
+
 
 # print(park_sirius_parser.main()) # готовые данные
 

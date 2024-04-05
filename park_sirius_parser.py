@@ -60,8 +60,27 @@ def main():
         except:
             with open('garbage.txt', 'w') as file:
                 file.write(link)
-        event_inf = [event_title, location_event, event_date, event_price, link]
-        data.append(event_inf)
+
+        # доп обработка даты
+        month_dict = {
+            "января": 1, "февраля": 2, "марта": 3, "апреля": 4,
+            "мая": 5, "июня": 6, "июля": 7, "августа": 8,
+            "сентября": 9, "октября": 10, "ноября": 11, "декабря": 12
+        }
+        year = int(datetime.now().year)
+        if ' - ' in event_date:
+            event_day = event_date.split(' - ')[0]
+        day, month = event_day.split()
+        day = int(day)
+        month = int(month_dict[month])
+        all_time = re.findall(r'\d{2}[.:]\d*', time)
+        for time in all_time:
+            sep = time[2]
+            hour, minute = map(int, time.split(sep))
+            event_date = datetime(year, month, day, hour, minute)
+            event_inf = [event_title, location_event, event_date, event_price, link]
+            data.append(event_inf)
+
     return data
 
 
