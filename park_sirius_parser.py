@@ -17,10 +17,12 @@ def main():
         event_desc = event.find('div', class_='col-lg-10 col-md-9 col-sm-12 col-xs-12')
         event_title = event_desc.find('h2')
         event_title = remove_html_tags(str(event_title))
+        event_title = event_title.capitalize()
 
         # получение места события
         location_event = event.find('span', class_='stats')
         location_event = remove_html_tags(str(location_event))
+        location_event = location_event.capitalize()
 
         # получение даты события
         event_date = event.find('span', class_='ticket-buy dimbox-grey')
