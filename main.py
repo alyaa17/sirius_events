@@ -49,6 +49,13 @@ db.commit()
 
 # удаление просроченных событий
 current_date = datetime.now().date()
+sql = f"SELECT FROM events WHERE event < '{current_date}'"
+cursor.execute(sql)
+# Получаем результаты
+results = cursor.fetchall()
+# Выводим результаты (например, список ID событий)
+
+
 sql = f"DELETE FROM events WHERE date < '{current_date}'"
 cursor.execute(sql)
 
