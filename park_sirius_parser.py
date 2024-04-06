@@ -74,14 +74,21 @@ def main():
         year = int(datetime.now().year)
         if ' - ' in event_date:
             event_day = event_date.split(' - ')[0]
-        day, month = event_day.split()
-        day = int(day)
-        month = int(month_dict[month])
-        all_time = re.findall(r'\d{1,2}[.:]\d*', time)
-        for time in all_time:
-            sep = re.search(r'[.:]', time).group()
-            hour, minute = map(int, time.split(sep))
-            event_date = datetime(year, month, day, hour, minute)
+            day, month = event_day.split()
+            day = int(day)
+            month = int(month_dict[month])
+            all_time = re.findall(r'\d{1,2}[.:]\d*', time)
+            for time in all_time:
+                sep = re.search(r'[.:]', time).group()
+                hour, minute = map(int, time.split(sep))
+                event_date = datetime(year, month, day, hour, minute)
+                event_inf = [event_title, location_event, event_date, event_price, link]
+                data.append(event_inf)
+        else:
+            day, month = event_date.split()
+            day = int(day)
+            month = int(month_dict[month])
+            event_date = datetime(year, month, day)
             event_inf = [event_title, location_event, event_date, event_price, link]
             data.append(event_inf)
 

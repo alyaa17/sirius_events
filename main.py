@@ -35,6 +35,9 @@ for ev in data:
     ev_information = (ev[0], ev[2], ev[1], ev[3])
     data_to_insert.append(tuple(ev_information))
 
+with open('text', 'w') as file:
+    file.write('an')
+
 for elem in data_to_insert:
     q = f"SELECT id FROM events WHERE event = '{elem[0]}' AND date = '{elem[1]}'"
     cursor.execute(q)
