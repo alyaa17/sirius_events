@@ -26,7 +26,7 @@ cursor = db.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS events (
         id INTEGER PRIMARY KEY,
         event TEXT,
-        date DATETIME,
+        date TIMESTAMP,
         location TEXT,
         price TEXT ) ''')
 
@@ -36,8 +36,11 @@ for ev in data:
     data_to_insert.append(tuple(ev_information))
 
 for elem in data_to_insert:
-    print(elem)
-    # cursor.execute(f"INSERT INTO events (event, date, location, ptice) VALUES {elem}")
+    q = f"SELECT id FROM events WHERE event = '{elem[0]}' AND date = '{elem[1]}'"
+    cursor.execute(q)
+    existing_ev= cursor.fetchone()
+    if not existing_ev:
+        cursor.execute(f"INSERT INTO events (event, date, location, price) VALUES (?, ?, ?, ?)", elem)
 
 db.commit()
 db.close()

@@ -17,6 +17,8 @@ def main():
         event_desc = event.find('div', class_='col-lg-10 col-md-9 col-sm-12 col-xs-12')
         event_title = event_desc.find('h2')
         event_title = remove_html_tags(str(event_title))
+        if "Аренда" in event_title:
+            continue
         event_title = event_title.capitalize()
 
         # получение места события
