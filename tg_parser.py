@@ -4,10 +4,10 @@ from pyrogram import Client
 data = []
 
 def main():
-	api_id = 25261182
-	api_hash = 'fd7039bceb96000b2cd6b844aa51e555'
+	# api_id = 
+	# api_hash = 
 
-	channel_ids = [-1001280770128, -1001758115439, ]
+	# channel_ids = []
 
 	client = Client('my_session', api_id=api_id, api_hash=api_hash)
 	client.start()
