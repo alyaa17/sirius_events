@@ -2,7 +2,7 @@ import requests
 from datetime import datetime
 
 
-token = '878b68a8878b68a8878b68a873849ca4b68878b878b68a8e18db916d0b1536fcb7c4b6a'
+# token = ''
 # https://api.vk.com/method/wall.get?access_token=878b68a8878b68a8878b68a873849ca4b68878b878b68a8e18db916d0b1536fcb7c4b6a&v=5.13&domain=sirius.afisha
 version = 5.82
 domain = 'sirius.afisha'
